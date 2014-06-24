@@ -12,7 +12,6 @@ module.exports = function(grunt) {
                     expand: true, 
                     src: ['hello.txt'], 
                     dest: "<%= grunt.option(\"moduleid\") %>", 
-                    /*dest: 'build/',*/ 
                     filter: 'isFile', 
                     flatten: true
                 },
@@ -23,7 +22,7 @@ module.exports = function(grunt) {
   });
 
  
-  grunt.registerTask('copymod', 'Copies a named folder.', function(moduleid) {
+  grunt.registerTask('copymod', 'Copies a file into a dynamically named folder.', function(moduleid) {
     global.moduleid = moduleid;
     grunt.option("moduleid", global.moduleid);
     grunt.log.writeln("Output path: " + grunt.option("moduleid"));
